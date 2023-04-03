@@ -10,6 +10,18 @@ struct Array {
 };
 
 /**
+ * speed O(1)
+ * memory O(1)
+ */
+int at(int index, struct Array * array) {
+  if (index < 0 || index >= array->size) {
+    printf("Index out of bounds");
+    return -1;
+  }
+  return array->data[index];
+}
+
+/**
  * speed O(n)
  * memory O(n)
  */
@@ -134,6 +146,10 @@ int main(void) {
     pop(&array);
   }
   print(&array);
+
+  printf("at 0: %d\n", at(0, &array));
+  printf("at 1: %d\n", at(1, &array));
+  printf("at 2: %d\n", at(2, &array));
 
   return 0;
 }
